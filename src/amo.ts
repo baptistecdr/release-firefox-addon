@@ -121,7 +121,7 @@ export class AMOClient {
 
   async uploadAddon(
     xpi: ReadStream,
-    channel: Channel
+    channel: Channel,
   ): Promise<AMOApiUploadDetailResponse> {
     const path = `/api/v5/addons/upload/`;
     const form = new FormData();
@@ -141,7 +141,7 @@ export class AMOClient {
     addon: number | string,
     version: string,
     source: ReadStream,
-    license?: License
+    license?: License,
   ): Promise<VersionDetailResponse> {
     const path = `/api/v5/addons/addon/${addon}/versions/${version}/`;
     const form = new FormData();
@@ -177,7 +177,7 @@ export class AMOClient {
 
   async getVersionOrUndefined(
     addon: number | string,
-    version: number | string
+    version: number | string,
   ): Promise<VersionDetailResponse | undefined> {
     const path = `/api/v5/addons/addon/${addon}/versions/${version}/`;
 
@@ -187,7 +187,7 @@ export class AMOClient {
   private async proceed<T>(
     path: string,
     method: string,
-    params?: unknown
+    params?: unknown,
   ): Promise<T> {
     const token = this._getJwtToken();
     const url = `${this.origin}${path}`;
@@ -208,7 +208,7 @@ export class AMOClient {
       throw new Error(
         `Failed to ${method} ${url}: ${resp.status} ${
           resp.statusText
-        } ${await resp.text()}`
+        } ${await resp.text()}`,
       );
     }
 
@@ -218,7 +218,7 @@ export class AMOClient {
   private async proceedOrUndefined<T>(
     path: string,
     method: string,
-    params?: unknown
+    params?: unknown,
   ): Promise<T | undefined> {
     const token = this._getJwtToken();
     const url = `${this.origin}${path}`;
@@ -242,7 +242,7 @@ export class AMOClient {
       throw new Error(
         `Failed to ${method} ${url}: ${resp.status} ${
           resp.statusText
-        } ${await resp.text()}`
+        } ${await resp.text()}`,
       );
     }
 

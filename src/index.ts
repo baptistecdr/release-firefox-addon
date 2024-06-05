@@ -23,14 +23,14 @@ async function run(): Promise<void> {
 
   if (channel !== "listed" && channel !== "unlisted") {
     throw new Error(
-      `Invalid channel "${channel}".  Must be "listed" or "unlisted"`
+      `Invalid channel "${channel}".  Must be "listed" or "unlisted"`,
     );
   }
   if (typeof license !== "undefined" && !isLicense(license)) {
     throw new Error(
       `Invalid license "${license}".  Must be one of: ${Object.keys(
-        LICENSE_NAMES
-      ).join(", ")}`
+        LICENSE_NAMES,
+      ).join(", ")}`,
     );
   }
 
@@ -45,12 +45,12 @@ async function run(): Promise<void> {
   const upload = await client.uploadAddon(addonZip, channel);
 
   core.info(
-    `Addon "${addonPath}" has been uploaded with UUID "${upload.uuid}"`
+    `Addon "${addonPath}" has been uploaded with UUID "${upload.uuid}"`,
   );
 
   for await (const startTime of timers.setInterval(
     CHECK_ADDON_STATUS_INTERVAL,
-    Date.now()
+    Date.now(),
   )) {
     const status = await client.getUpload(upload.uuid);
 
@@ -91,7 +91,7 @@ async function run(): Promise<void> {
       addonId,
       version.version,
       sourceZip,
-      "MIT"
+      "MIT",
     );
     core.info(`Source "${sourcePath}" has been uploaded to "${src.source}"`);
   }
