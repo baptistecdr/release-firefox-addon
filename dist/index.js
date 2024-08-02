@@ -1050,7 +1050,7 @@ Object.defineProperty(exports, "parse", ({
   }
 }));
 
-var _v = _interopRequireDefault(__nccwpck_require__(4456));
+var _v = _interopRequireDefault(__nccwpck_require__(1595));
 
 var _v2 = _interopRequireDefault(__nccwpck_require__(6993));
 
@@ -1060,7 +1060,7 @@ var _v4 = _interopRequireDefault(__nccwpck_require__(6217));
 
 var _nil = _interopRequireDefault(__nccwpck_require__(2381));
 
-var _version = _interopRequireDefault(__nccwpck_require__(5459));
+var _version = _interopRequireDefault(__nccwpck_require__(427));
 
 var _validate = _interopRequireDefault(__nccwpck_require__(2609));
 
@@ -1284,7 +1284,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 4456:
+/***/ 1595:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -1591,7 +1591,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 5459:
+/***/ 427:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4432,7 +4432,7 @@ const timespan = __nccwpck_require__(6098);
 const PS_SUPPORTED = __nccwpck_require__(9085);
 const validateAsymmetricKey = __nccwpck_require__(7596);
 const jws = __nccwpck_require__(4636);
-const includes = __nccwpck_require__(7931);
+const includes = __nccwpck_require__(7548);
 const isBoolean = __nccwpck_require__(6501);
 const isInteger = __nccwpck_require__(1441);
 const isNumber = __nccwpck_require__(298);
@@ -5534,7 +5534,7 @@ module.exports = VerifyStream;
 
 /***/ }),
 
-/***/ 7931:
+/***/ 7548:
 /***/ ((module) => {
 
 /**
@@ -7720,7 +7720,7 @@ module.exports = Comparator
 const parseOptions = __nccwpck_require__(785)
 const { safeRe: re, t } = __nccwpck_require__(9523)
 const cmp = __nccwpck_require__(5098)
-const debug = __nccwpck_require__(427)
+const debug = __nccwpck_require__(106)
 const SemVer = __nccwpck_require__(8088)
 const Range = __nccwpck_require__(9828)
 
@@ -7949,7 +7949,7 @@ const cache = new LRU()
 
 const parseOptions = __nccwpck_require__(785)
 const Comparator = __nccwpck_require__(1532)
-const debug = __nccwpck_require__(427)
+const debug = __nccwpck_require__(106)
 const SemVer = __nccwpck_require__(8088)
 const {
   safeRe: re,
@@ -8291,7 +8291,7 @@ const testSet = (set, version, options) => {
 /***/ 8088:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const debug = __nccwpck_require__(427)
+const debug = __nccwpck_require__(106)
 const { MAX_LENGTH, MAX_SAFE_INTEGER } = __nccwpck_require__(2293)
 const { safeRe: re, t } = __nccwpck_require__(9523)
 
@@ -9194,7 +9194,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 427:
+/***/ 106:
 /***/ ((module) => {
 
 const debug = (
@@ -9317,7 +9317,7 @@ const {
   MAX_SAFE_BUILD_LENGTH,
   MAX_LENGTH,
 } = __nccwpck_require__(2293)
-const debug = __nccwpck_require__(427)
+const debug = __nccwpck_require__(106)
 exports = module.exports = {}
 
 // The actual regexps go on exports.re
@@ -10416,7 +10416,7 @@ const Client = __nccwpck_require__(3598)
 const Dispatcher = __nccwpck_require__(412)
 const errors = __nccwpck_require__(8045)
 const Pool = __nccwpck_require__(4634)
-const BalancedPool = __nccwpck_require__(1395)
+const BalancedPool = __nccwpck_require__(7931)
 const Agent = __nccwpck_require__(7890)
 const util = __nccwpck_require__(3983)
 const { InvalidArgumentError } = errors
@@ -12086,7 +12086,7 @@ module.exports = { getResolveErrorBodyCallback }
 
 /***/ }),
 
-/***/ 1395:
+/***/ 7931:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -32601,7 +32601,7 @@ var _v5 = _interopRequireDefault(__nccwpck_require__(8080));
 var _v6ToV = _interopRequireDefault(__nccwpck_require__(3343));
 var _v6 = _interopRequireDefault(__nccwpck_require__(2778));
 var _validate = _interopRequireDefault(__nccwpck_require__(6900));
-var _version = _interopRequireDefault(__nccwpck_require__(1595));
+var _version = _interopRequireDefault(__nccwpck_require__(2414));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 
 /***/ }),
@@ -33387,7 +33387,7 @@ var _default = exports["default"] = validate;
 
 /***/ }),
 
-/***/ 1595:
+/***/ 2414:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -38249,6 +38249,13 @@ module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("node:events"
 
 /***/ }),
 
+/***/ 7561:
+/***/ ((module) => {
+
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("node:fs");
+
+/***/ }),
+
 /***/ 7742:
 /***/ ((module) => {
 
@@ -40100,7 +40107,7 @@ const File = _File
 
 /***/ }),
 
-/***/ 2777:
+/***/ 7972:
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __nccwpck_require__) => {
 
 
@@ -40111,8 +40118,8 @@ __nccwpck_require__.d(__webpack_exports__, {
 
 // UNUSED EXPORTS: Blob, blobFrom, blobFromSync, default, fileFrom, fileFromSync
 
-;// CONCATENATED MODULE: external "node:fs"
-const external_node_fs_namespaceObject = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("node:fs");
+// EXTERNAL MODULE: external "node:fs"
+var external_node_fs_ = __nccwpck_require__(7561);
 ;// CONCATENATED MODULE: external "node:path"
 const external_node_path_namespaceObject = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("node:path");
 // EXTERNAL MODULE: ./node_modules/node-domexception/index.js
@@ -40129,7 +40136,7 @@ var fetch_blob = __nccwpck_require__(1410);
 
 
 
-const { stat } = external_node_fs_namespaceObject.promises
+const { stat } = external_node_fs_.promises
 
 /**
  * @param {string} path filepath on the disk
@@ -40715,9 +40722,20 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 
+// EXTERNAL MODULE: external "node:fs"
+var external_node_fs_ = __nccwpck_require__(7561);
+var external_node_fs_default = /*#__PURE__*/__nccwpck_require__.n(external_node_fs_);
+;// CONCATENATED MODULE: external "node:timers/promises"
+const promises_namespaceObject = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("node:timers/promises");
+var promises_default = /*#__PURE__*/__nccwpck_require__.n(promises_namespaceObject);
+// EXTERNAL MODULE: ./node_modules/@actions/core/lib/core.js
+var core = __nccwpck_require__(2186);
 // EXTERNAL MODULE: ./node_modules/form-data/lib/form_data.js
 var form_data = __nccwpck_require__(4334);
 var form_data_default = /*#__PURE__*/__nccwpck_require__.n(form_data);
+// EXTERNAL MODULE: ./node_modules/jsonwebtoken/index.js
+var jsonwebtoken = __nccwpck_require__(7486);
+var jsonwebtoken_default = /*#__PURE__*/__nccwpck_require__.n(jsonwebtoken);
 ;// CONCATENATED MODULE: external "node:http"
 const external_node_http_namespaceObject = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("node:http");
 ;// CONCATENATED MODULE: external "node:https"
@@ -42449,8 +42467,8 @@ class AbortError extends FetchBaseError {
 	}
 }
 
-// EXTERNAL MODULE: ./node_modules/fetch-blob/from.js + 2 modules
-var from = __nccwpck_require__(2777);
+// EXTERNAL MODULE: ./node_modules/fetch-blob/from.js + 1 modules
+var from = __nccwpck_require__(7972);
 ;// CONCATENATED MODULE: ./node_modules/node-fetch/src/index.js
 /**
  * Index.js
@@ -42882,9 +42900,6 @@ const validate = uuid_dist/* validate */.Gu;
 const stringify = uuid_dist/* stringify */.Pz;
 const parse = uuid_dist/* parse */.Qc;
 
-// EXTERNAL MODULE: ./node_modules/jsonwebtoken/index.js
-var jsonwebtoken = __nccwpck_require__(7486);
-var jsonwebtoken_default = /*#__PURE__*/__nccwpck_require__.n(jsonwebtoken);
 ;// CONCATENATED MODULE: ./src/amo.ts
 
 
@@ -42912,7 +42927,7 @@ class AMOClient {
         this.origin = origin;
     }
     async uploadAddon(xpi, channel) {
-        const path = `/api/v5/addons/upload/`;
+        const path = "/api/v5/addons/upload/";
         const form = new (form_data_default())();
         form.append("upload", xpi);
         form.append("channel", channel);
@@ -42952,7 +42967,7 @@ class AMOClient {
     async proceed(path, method, params) {
         const token = this._getJwtToken();
         const url = `${this.origin}${path}`;
-        const headers = { Authorization: "JWT " + token };
+        const headers = { Authorization: `JWT ${token}` };
         let body;
         if (params instanceof (form_data_default())) {
             body = params;
@@ -42973,7 +42988,7 @@ class AMOClient {
     async proceedOrUndefined(path, method, params) {
         const token = this._getJwtToken();
         const url = `${this.origin}${path}`;
-        const headers = { Authorization: "JWT " + token };
+        const headers = { Authorization: `JWT ${token}` };
         let body;
         if (params instanceof (form_data_default())) {
             body = params;
@@ -43007,14 +43022,6 @@ class AMOClient {
     }
 }
 
-// EXTERNAL MODULE: external "fs"
-var external_fs_ = __nccwpck_require__(7147);
-var external_fs_default = /*#__PURE__*/__nccwpck_require__.n(external_fs_);
-// EXTERNAL MODULE: ./node_modules/@actions/core/lib/core.js
-var core = __nccwpck_require__(2186);
-;// CONCATENATED MODULE: external "timers/promises"
-const promises_namespaceObject = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("timers/promises");
-var promises_default = /*#__PURE__*/__nccwpck_require__.n(promises_namespaceObject);
 ;// CONCATENATED MODULE: ./src/index.ts
 
 
@@ -43046,7 +43053,7 @@ async function run() {
             secret: authSecret,
         },
     });
-    const addonZip = external_fs_default().createReadStream(addonPath);
+    const addonZip = external_node_fs_default().createReadStream(addonPath);
     const upload = await client.uploadAddon(addonZip, channel);
     core.info(`Addon "${addonPath}" has been uploaded with UUID "${upload.uuid}"`);
     for await (const startTime of promises_default().setInterval(CHECK_ADDON_STATUS_INTERVAL, Date.now())) {
@@ -43081,7 +43088,7 @@ async function run() {
         core.info(`Version "${version.version}" already exists`);
     }
     if (sourcePath) {
-        const sourceZip = external_fs_default().createReadStream(sourcePath);
+        const sourceZip = external_node_fs_default().createReadStream(sourcePath);
         const src = await client.uploadSource(addonId, version.version, sourceZip, license);
         core.info(`Source "${sourcePath}" has been uploaded to "${src.source}"`);
     }
