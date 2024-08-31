@@ -43037,7 +43037,7 @@ async function run() {
     const compatibilityFirefoxMin = core.getInput("compatibility-firefox-min") || undefined;
     const compatibilityFirefoxMax = core.getInput("compatibility-firefox-max") || undefined;
     const license = core.getInput("license") || undefined;
-    const releaseNote = core.getInput("release-note");
+    const releaseNote = core.getInput("release-note") || "";
     const channel = core.getInput("channel") || undefined;
     const authIssuer = core.getInput("auth-api-issuer");
     const authSecret = core.getInput("auth-api-secret");
