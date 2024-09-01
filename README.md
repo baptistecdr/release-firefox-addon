@@ -25,6 +25,8 @@ steps:
       addon-path: "path/to/your/addon.zip"
       auth-api-issuer: ${{ secrets.AUTH_API_ISSUER }}
       auth-api-secret: ${{ secrets.AUTH_API_SECRET }}
+      release-note: |
+        This is the first version of the add-on.
 ```
 
 The `auth-api-issuer` and `auth-api-secret` are used to authenticate with the AMO API with JWT token. You can get
@@ -44,6 +46,8 @@ steps:
         To generate the source code, please run ...
       auth-api-issuer: ${{ secrets.AUTH_API_ISSUER }}
       auth-api-secret: ${{ secrets.AUTH_API_SECRET }}
+      release-note: |
+        This is the first version of the add-on.
 ```
 
 ### Inputs
