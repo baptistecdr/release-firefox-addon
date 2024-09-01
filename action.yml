@@ -21,6 +21,7 @@ inputs:
     description: 'License of the version'
   release-note:
     description: 'Information about changes in the new version.  Note that this field supports only locale "en-US".'
+    required: true
   channel:
     description: 'Channel to publish the version.  This field supports only "listed" and "unlisted".'
     default: 'listed'

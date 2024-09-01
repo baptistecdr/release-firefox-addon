@@ -59,7 +59,7 @@ All supported options are the following:
 | `compatibility-firefox-min` | Minimum version of Firefox that the version is compatible with.                                                                          |          |          |
 | `compatibility-firefox-max` | Maximum version of Firefox that the version of the add-on is compatible with.                                                            |          |          |
 | `license`                   | License of the version.  You can see available licenses [here](https://addons-server.readthedocs.io/en/latest/topics/api/licenses.html). |          |          |
-| `release-note`              | Information about changes in the new version.  Note that this field supports only locale "en-US".                                        |          |          |
+| `release-note`              | Information about changes in the new version.  Note that this field supports only locale "en-US".                                        | Yes      |          |
 | `channel`                   | 'Channel to publish the version.  This field supports only "listed" and "unlisted".                                                      |          | `listed` |
 | `auth-api-issuer`           | An API key of the JWT token for authentication.                                                                                          | Yes      |          |
 | `auth-api-secret`           | An API secret of the JWT token for authentication.                                                                                       | Yes      |          |
