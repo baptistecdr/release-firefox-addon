@@ -1,7 +1,4 @@
-import type { ReadStream } from "node:fs";
-import FormData from "form-data";
 import jwt from "jsonwebtoken";
-import fetch from "node-fetch";
 import { v4 as uuidv4 } from "uuid";
 
 type VersionRange = { min?: string; max?: string };
@@ -98,7 +95,7 @@ const PRODUCTION_ORIGIN = "https://addons.mozilla.org";
 
 export class AMOClient {
   private auth: { issuer: string; secret: string };
-  private origin: string;
+  private readonly origin: string;
 
   constructor({
     auth,
@@ -111,10 +108,10 @@ export class AMOClient {
     this.origin = origin;
   }
 
-  async uploadAddon(xpi: ReadStream, channel: Channel): Promise<AMOApiUploadDetailResponse> {
+  async uploadAddon(xpi: Blob, channel: Channel): Promise<AMOApiUploadDetailResponse> {
     const path = "/api/v5/addons/upload/";
     const form = new FormData();
-    form.append("upload", xpi);
+    form.append("upload", xpi, "addon.zip");
     form.append("channel", channel);
 
     return this.proceed<AMOApiUploadDetailResponse>(path, "POST", form);
@@ -126,11 +123,11 @@ export class AMOClient {
     return this.proceed<AMOApiUploadDetailResponse>(path, "GET");
   }
 
-  async uploadSource(addon: number | string, version: string, source: ReadStream, license?: License): Promise<VersionDetailResponse> {
+  async uploadSource(addon: number | string, version: string, source: Blob, license?: License): Promise<VersionDetailResponse> {
     const path = `/api/v5/addons/addon/${addon}/versions/${version}/`;
     const form = new FormData();
-    form.append("source", source);
-    form.append("license", license);
+    form.append("source", source, "source.zip");
+    form.append("license", license as string);
 
     return this.proceed<VersionDetailResponse>(path, "PATCH", form);
   }
