@@ -1,6 +1,6 @@
 {
   "name": "release-firefox-addon",
-  "version": "1.0.2-0",
+  "version": "1.0.2",
   "description": "Publish a firefox addon to AMO",
   "main": "dist/index.js",
   "type": "module",
