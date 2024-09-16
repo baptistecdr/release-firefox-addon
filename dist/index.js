@@ -33832,7 +33832,9 @@ class AMOClient {
         const path = `/api/v5/addons/addon/${addon}/versions/${version}/`;
         const form = new FormData();
         form.append("source", source, "source.zip");
-        form.append("license", license);
+        if (license) {
+            form.append("license", license);
+        }
         return this.proceed(path, "PATCH", form);
     }
     async createVersion(addon, opts) {
