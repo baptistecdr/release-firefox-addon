@@ -127,7 +127,9 @@ export class AMOClient {
     const path = `/api/v5/addons/addon/${addon}/versions/${version}/`;
     const form = new FormData();
     form.append("source", source, "source.zip");
-    form.append("license", license as string);
+    if (license) {
+      form.append("license", license as string);
+    }
 
     return this.proceed<VersionDetailResponse>(path, "PATCH", form);
   }
