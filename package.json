@@ -13,7 +13,7 @@
     "package": "ncc build src/index.ts && cp action.yml README.md dist/"
   },
   "dependencies": {
-    "@actions/core": "1.11.0",
+    "@actions/core": "1.11.1",
     "@vercel/ncc": "0.38.2",
     "jsonwebtoken": "9.0.2",
     "typescript": "5.6.3",
