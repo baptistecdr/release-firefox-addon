@@ -25,5 +25,5 @@
     "@types/node": "22.9.3",
     "@types/uuid": "10.0.0"
   },
-  "packageManager": "yarn@4.5.2"
+  "packageManager": "yarn@4.5.3"
 }
