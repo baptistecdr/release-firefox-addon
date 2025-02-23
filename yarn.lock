@@ -182,13 +182,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jsonwebtoken@npm:9.0.8":
-  version: 9.0.8
-  resolution: "@types/jsonwebtoken@npm:9.0.8"
+"@types/jsonwebtoken@npm:9.0.9":
+  version: 9.0.9
+  resolution: "@types/jsonwebtoken@npm:9.0.9"
   dependencies:
     "@types/ms": "npm:*"
     "@types/node": "npm:*"
-  checksum: 10c0/dd3ccea05115ad9c4458d0c2a487179b1abf8886eaa8cc77d64031a8ef47abd3ff038cdde26e76893372238c8612e4f5fd578b3400e525b65c0e8d3abefe5282
+  checksum: 10c0/d754a7b65fc021b298fc94e8d7a7d71f35dedf24296ac89286f80290abc5dbb0c7830a21440ee9ecbb340efc1b0a21f5609ea298a35b874cae5ad29a65440741
   languageName: node
   linkType: hard
 
@@ -931,7 +931,7 @@ __metadata:
   dependencies:
     "@actions/core": "npm:1.11.1"
     "@biomejs/biome": "npm:1.9.4"
-    "@types/jsonwebtoken": "npm:9.0.8"
+    "@types/jsonwebtoken": "npm:9.0.9"
     "@types/node": "npm:22.13.5"
     "@types/uuid": "npm:10.0.0"
     "@vercel/ncc": "npm:0.38.3"
