@@ -22,7 +22,7 @@
   "devDependencies": {
     "@biomejs/biome": "2.0.6",
     "@types/jsonwebtoken": "9.0.10",
-    "@types/node": "22.15.33",
+    "@types/node": "22.15.34",
     "@types/uuid": "10.0.0"
   },
   "packageManager": "yarn@4.9.2"
