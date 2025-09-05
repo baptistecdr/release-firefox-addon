@@ -33726,25 +33726,25 @@ var core = __nccwpck_require__(7484);
 // EXTERNAL MODULE: ./node_modules/jsonwebtoken/index.js
 var jsonwebtoken = __nccwpck_require__(9653);
 var jsonwebtoken_default = /*#__PURE__*/__nccwpck_require__.n(jsonwebtoken);
-// EXTERNAL MODULE: external "crypto"
-var external_crypto_ = __nccwpck_require__(6982);
-;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm/native.js
+// EXTERNAL MODULE: external "node:crypto"
+var external_node_crypto_ = __nccwpck_require__(7598);
+;// CONCATENATED MODULE: ./node_modules/uuid/dist/native.js
 
-/* harmony default export */ const esm_native = ({ randomUUID: external_crypto_.randomUUID });
+/* harmony default export */ const dist_native = ({ randomUUID: external_node_crypto_.randomUUID });
 
-;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm/rng.js
+;// CONCATENATED MODULE: ./node_modules/uuid/dist/rng.js
 
 const rnds8Pool = new Uint8Array(256);
 let poolPtr = rnds8Pool.length;
 function rng() {
     if (poolPtr > rnds8Pool.length - 16) {
-        (0,external_crypto_.randomFillSync)(rnds8Pool);
+        (0,external_node_crypto_.randomFillSync)(rnds8Pool);
         poolPtr = 0;
     }
     return rnds8Pool.slice(poolPtr, (poolPtr += 16));
 }
 
-;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm/stringify.js
+;// CONCATENATED MODULE: ./node_modules/uuid/dist/stringify.js
 
 const byteToHex = [];
 for (let i = 0; i < 256; ++i) {
@@ -33779,16 +33779,13 @@ function stringify(arr, offset = 0) {
     }
     return uuid;
 }
-/* harmony default export */ const esm_stringify = ((/* unused pure expression or super */ null && (stringify)));
+/* harmony default export */ const dist_stringify = ((/* unused pure expression or super */ null && (stringify)));
 
-;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm/v4.js
+;// CONCATENATED MODULE: ./node_modules/uuid/dist/v4.js
 
 
 
-function v4(options, buf, offset) {
-    if (esm_native.randomUUID && !buf && !options) {
-        return esm_native.randomUUID();
-    }
+function _v4(options, buf, offset) {
     options = options || {};
     const rnds = options.random ?? options.rng?.() ?? rng();
     if (rnds.length < 16) {
@@ -33808,7 +33805,13 @@ function v4(options, buf, offset) {
     }
     return unsafeStringify(rnds);
 }
-/* harmony default export */ const esm_v4 = (v4);
+function v4(options, buf, offset) {
+    if (dist_native.randomUUID && !buf && !options) {
+        return dist_native.randomUUID();
+    }
+    return _v4(options, buf, offset);
+}
+/* harmony default export */ const dist_v4 = (v4);
 
 ;// CONCATENATED MODULE: ./src/amo.ts
 
@@ -33924,7 +33927,7 @@ class AMOClient {
         const issuedAt = Math.floor(Date.now() / 1000);
         const payload = {
             iss: this.auth.issuer,
-            jti: esm_v4(),
+            jti: dist_v4(),
             iat: issuedAt,
             exp: issuedAt + 60,
         };
