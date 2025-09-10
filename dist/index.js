@@ -33728,11 +33728,11 @@ var jsonwebtoken = __nccwpck_require__(9653);
 var jsonwebtoken_default = /*#__PURE__*/__nccwpck_require__.n(jsonwebtoken);
 // EXTERNAL MODULE: external "node:crypto"
 var external_node_crypto_ = __nccwpck_require__(7598);
-;// CONCATENATED MODULE: ./node_modules/uuid/dist/native.js
+;// CONCATENATED MODULE: ./node_modules/uuid/dist-node/native.js
 
-/* harmony default export */ const dist_native = ({ randomUUID: external_node_crypto_.randomUUID });
+/* harmony default export */ const dist_node_native = ({ randomUUID: external_node_crypto_.randomUUID });
 
-;// CONCATENATED MODULE: ./node_modules/uuid/dist/rng.js
+;// CONCATENATED MODULE: ./node_modules/uuid/dist-node/rng.js
 
 const rnds8Pool = new Uint8Array(256);
 let poolPtr = rnds8Pool.length;
@@ -33744,7 +33744,7 @@ function rng() {
     return rnds8Pool.slice(poolPtr, (poolPtr += 16));
 }
 
-;// CONCATENATED MODULE: ./node_modules/uuid/dist/stringify.js
+;// CONCATENATED MODULE: ./node_modules/uuid/dist-node/stringify.js
 
 const byteToHex = [];
 for (let i = 0; i < 256; ++i) {
@@ -33779,9 +33779,9 @@ function stringify(arr, offset = 0) {
     }
     return uuid;
 }
-/* harmony default export */ const dist_stringify = ((/* unused pure expression or super */ null && (stringify)));
+/* harmony default export */ const dist_node_stringify = ((/* unused pure expression or super */ null && (stringify)));
 
-;// CONCATENATED MODULE: ./node_modules/uuid/dist/v4.js
+;// CONCATENATED MODULE: ./node_modules/uuid/dist-node/v4.js
 
 
 
@@ -33806,12 +33806,12 @@ function _v4(options, buf, offset) {
     return unsafeStringify(rnds);
 }
 function v4(options, buf, offset) {
-    if (dist_native.randomUUID && !buf && !options) {
-        return dist_native.randomUUID();
+    if (dist_node_native.randomUUID && !buf && !options) {
+        return dist_node_native.randomUUID();
     }
     return _v4(options, buf, offset);
 }
-/* harmony default export */ const dist_v4 = (v4);
+/* harmony default export */ const dist_node_v4 = (v4);
 
 ;// CONCATENATED MODULE: ./src/amo.ts
 
@@ -33927,7 +33927,7 @@ class AMOClient {
         const issuedAt = Math.floor(Date.now() / 1000);
         const payload = {
             iss: this.auth.issuer,
-            jti: dist_v4(),
+            jti: dist_node_v4(),
             iat: issuedAt,
             exp: issuedAt + 60,
         };
