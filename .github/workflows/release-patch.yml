@@ -15,12 +15,11 @@ jobs:
         uses: actions/setup-node@v5
         with:
           node-version-file: .nvmrc
-          cache: yarn
       - name: Set patch version
         id: patch_version
         run: |
           PATCH_VERSION=$(npm version --no-git-tag-version --no-commit-hooks patch)
-          yarn install
+          npm install
           echo "PATCH_VERSION=$PATCH_VERSION" >> $GITHUB_OUTPUT
       - name: Commit, push and create tag
         uses: EndBug/add-and-commit@v9
@@ -39,7 +38,7 @@ jobs:
         id: dev_version
         run: |
           DEV_VERSION=$(npm version --no-git-tag-version --no-commit-hooks prerelease)
-          yarn install
+          npm install
           echo "DEV_VERSION=$DEV_VERSION" >> $GITHUB_OUTPUT
       - name: Commit and push
         uses: EndBug/add-and-commit@v9

@@ -83,8 +83,8 @@ All supported outputs are the following:
 
 - Install [Node.JS LTS](https://nodejs.org/)
 - Clone the project
-- Run `yarn install`
-- Run `yarn package`
+- Run `npm install`
+- Run `npm run package`
 
 ## Bugs and feature requests
 

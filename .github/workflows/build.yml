@@ -22,16 +22,15 @@ jobs:
         uses: actions/setup-node@v5
         with:
           node-version-file: .nvmrc
-          cache: yarn
 
       - name: Install dependencies
-        run: yarn install --immutable
+        run: npm install --no-package-lock
 
       - name: Lint
-        run: yarn lint
+        run: npm run lint
 
       - name: Package
-        run: yarn package
+        run: npm run package
 
       - name: Commit package
         uses: EndBug/add-and-commit@v9
