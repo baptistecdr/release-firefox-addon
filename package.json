@@ -13,7 +13,7 @@
     "package": "./package.sh"
   },
   "dependencies": {
-    "@actions/core": "2.0.0",
+    "@actions/core": "2.0.1",
     "@vercel/ncc": "0.38.4",
     "jsonwebtoken": "9.0.2",
     "typescript": "5.9.3",
