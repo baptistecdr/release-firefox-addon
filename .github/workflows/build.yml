@@ -56,7 +56,7 @@ jobs:
           gh api /repos/${{ github.repository }}/actions/artifacts/${{ steps.upload-package.outputs.artifact-id }}/zip > "$ARTIFACTS_DIR/$ARTIFACT_NAME.zip"
 
       - name: Attest artifact
-        uses: actions/attest-build-provenance@v3
+        uses: actions/attest-build-provenance@v4
         with:
           subject-path: |
             ${{ env.ARTIFACTS_DIR }}/${{ env.ARTIFACT_NAME }}.zip
