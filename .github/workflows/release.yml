@@ -1,45 +1,62 @@
-name: Release Major
+name: Release
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      version-type:
+        description: Version type to release
+        required: true
+        type: choice
+        options:
+          - major
+          - minor
+          - patch
 
 jobs:
-  release-major:
-    name: Release Major
+  release:
+    name: Release ${{ inputs.version-type }}
     runs-on: ubuntu-latest
     steps:
       - name: Clone repository
         uses: actions/checkout@v6
         with:
           token: ${{ secrets.RELEASE_TOKEN }}
+
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
           node-version-file: .nvmrc
-      - name: Set major version
-        id: major_version
+          cache: npm
+
+      - name: Set ${{ inputs.version-type }} version
+        id: release_version
         run: |
-          MAJOR_VERSION=$(npm version --no-git-tag-version --no-commit-hooks major)
-          npm install
-          echo "MAJOR_VERSION=$MAJOR_VERSION" >> $GITHUB_OUTPUT
+          RELEASE_VERSION=$(npm version --no-git-tag-version --no-commit-hooks ${{ inputs.version-type }})
+          npm install --package-lock-only
+          echo "RELEASE_VERSION=$RELEASE_VERSION" >> $GITHUB_OUTPUT
+
       - name: Commit, push and create tag
         uses: EndBug/add-and-commit@v9
         with:
           fetch: true
           default_author: github_actions
-          message: Release ${{ steps.major_version.outputs.MAJOR_VERSION }}
+          message: Release ${{ steps.release_version.outputs.RELEASE_VERSION }}
           pathspec_error_handling: exitImmediately
           push: true
-          tag: ${{ steps.major_version.outputs.MAJOR_VERSION }}
+          tag: ${{ steps.release_version.outputs.RELEASE_VERSION }}
+
       - name: Create release
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create ${{ steps.major_version.outputs.MAJOR_VERSION }} --generate-notes
+        run: gh release create ${{ steps.release_version.outputs.RELEASE_VERSION }} --generate-notes
+
       - name: Set next dev version
         id: dev_version
         run: |
           DEV_VERSION=$(npm version --no-git-tag-version --no-commit-hooks prerelease)
-          npm install
+          npm install --package-lock-only
           echo "DEV_VERSION=$DEV_VERSION" >> $GITHUB_OUTPUT
+
       - name: Commit and push
         uses: EndBug/add-and-commit@v9
         with:
