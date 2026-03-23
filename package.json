@@ -16,7 +16,7 @@
     "@actions/core": "3.0.0",
     "@vercel/ncc": "0.38.4",
     "jsonwebtoken": "9.0.3",
-    "typescript": "5.9.3",
+    "typescript": "6.0.2",
     "uuid": "13.0.0"
   },
   "devDependencies": {
