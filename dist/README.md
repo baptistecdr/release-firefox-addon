@@ -54,19 +54,22 @@ steps:
 
 All supported options are the following:
 
-| Name                        | Description                                                                                                                              | Required | Default  |
-|-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------|----------|----------|
-| `addon-id`                  | ID of the add-on to be published in numeric or UUID format, or the add-on slug                                                           | Yes      |          |
-| `addon-path`                | Path to the add-on file to be published                                                                                                  | Yes      |          |
-| `source-path`               | Optional path to the source file of the version.  This is nessesary if the version contains minified, concatenated, or transpiled code.  |          |          |
-| `approval-note`             | Optional note to help reviewers such as how to build the add-on or how to test with test accounts.                                       |          |          |
-| `compatibility-firefox-min` | Minimum version of Firefox that the version is compatible with.                                                                          |          |          |
-| `compatibility-firefox-max` | Maximum version of Firefox that the version of the add-on is compatible with.                                                            |          |          |
-| `license`                   | License of the version.  You can see available licenses [here](https://addons-server.readthedocs.io/en/latest/topics/api/licenses.html). |          |          |
-| `release-note`              | Information about changes in the new version.  Note that this field supports only locale "en-US".                                        | Yes      |          |
-| `channel`                   | 'Channel to publish the version.  This field supports only "listed" and "unlisted".                                                      |          | `listed` |
-| `auth-api-issuer`           | An API key of the JWT token for authentication.                                                                                          | Yes      |          |
-| `auth-api-secret`           | An API secret of the JWT token for authentication.                                                                                       | Yes      |          |
+| Name                                | Description                                                                                                                              | Required | Default   |
+|-------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|----------|-----------|
+| `addon-id`                          | ID of the add-on to be published in numeric or UUID format, or the add-on slug                                                           | Yes      |           |
+| `addon-path`                        | Path to the add-on file to be published                                                                                                  | Yes      |           |
+| `source-path`                       | Optional path to the source file of the version.  This is nessesary if the version contains minified, concatenated, or transpiled code.  |          |           |
+| `approval-note`                     | Optional note to help reviewers such as how to build the add-on or how to test with test accounts.                                       |          |           |
+| `compatibility`                     | Compatibility of the version, comma separated. This field supports only 'firefox' and 'firefox-android'.                                 |          | `firefox` |
+| `compatibility-firefox-min`         | Minimum version of Firefox that the version is compatible with.                                                                          |          |           |
+| `compatibility-firefox-max`         | Maximum version of Firefox that the version of the add-on is compatible with.                                                            |          |           |
+| `compatibility-firefox-android-min` | Minimum version of Firefox Android that the version is compatible with.                                                                  |          |           |
+| `compatibility-firefox-android-max` | Maximum version of Firefox Android that the version of the add-on is compatible with.                                                    |          |           |
+| `license`                           | License of the version.  You can see available licenses [here](https://addons-server.readthedocs.io/en/latest/topics/api/licenses.html). |          |           |
+| `release-note`                      | Information about changes in the new version.  Note that this field supports only locale "en-US".                                        | Yes      |           |
+| `channel`                           | 'Channel to publish the version.  This field supports only "listed" and "unlisted".                                                      |          | `listed`  |
+| `auth-api-issuer`                   | An API key of the JWT token for authentication.                                                                                          | Yes      |           |
+| `auth-api-secret`                   | An API secret of the JWT token for authentication.                                                                                       | Yes      |           |
 
 ### Outputs
 
