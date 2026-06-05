@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import timers from "node:timers/promises";
 import * as core from "@actions/core";
-import { AMOClient, isLicense, LICENSE_NAMES } from "./amo";
+import { AMOClient, type Compatibility, isLicense, LICENSE_NAMES, type VersionRange } from "./amo";
 
 const CHECK_ADDON_STATUS_INTERVAL = 3000;
 const CHECK_ADDON_STATUS_TIMEOUT = 20000;
@@ -11,19 +11,46 @@ async function run(): Promise<void> {
   const addonPath = core.getInput("addon-path");
   const sourcePath = core.getInput("source-path") || undefined;
   const approvalNote = core.getInput("approval-note") || undefined;
+  const compatibility = core.getInput("compatibility");
   const compatibilityFirefoxMin = core.getInput("compatibility-firefox-min") || undefined;
   const compatibilityFirefoxMax = core.getInput("compatibility-firefox-max") || undefined;
+  const compatibilityFirefoxAndroidMin = core.getInput("compatibility-firefox-android-min") || undefined;
+  const compatibilityFirefoxAndroidMax = core.getInput("compatibility-firefox-android-max") || undefined;
   const license = core.getInput("license") || undefined;
   const releaseNote = core.getInput("release-note");
   const channel = core.getInput("channel") || undefined;
   const authIssuer = core.getInput("auth-api-issuer");
   const authSecret = core.getInput("auth-api-secret");
 
-  if (channel !== "listed" && channel !== "unlisted") {
-    throw new Error(`Invalid channel "${channel}".  Must be "listed" or "unlisted"`);
+  const compatibilities = compatibility.split(",").map((c) => c.trim());
+
+  if (compatibilities.some((c) => c !== "firefox" && c !== "firefox-android")) {
+    throw new Error(`Invalid compatibility "${compatibility}". Must be "firefox" or "firefox-android"`);
   }
+
   if (typeof license !== "undefined" && !isLicense(license)) {
-    throw new Error(`Invalid license "${license}".  Must be one of: ${Object.keys(LICENSE_NAMES).join(", ")}`);
+    throw new Error(`Invalid license "${license}". Must be one of: ${Object.keys(LICENSE_NAMES).join(", ")}`);
+  }
+
+  if (channel !== "listed" && channel !== "unlisted") {
+    throw new Error(`Invalid channel "${channel}". Must be "listed" or "unlisted"`);
+  }
+
+  const firefoxCompatibility: VersionRange = {
+    min: compatibilityFirefoxMin,
+    max: compatibilityFirefoxMax,
+  };
+  const firefoxAndroidCompatibility: VersionRange = {
+    min: compatibilityFirefoxAndroidMin,
+    max: compatibilityFirefoxAndroidMax,
+  };
+  const createVersionRequestCompatibility: Compatibility = {};
+
+  if (compatibilities.includes("firefox")) {
+    createVersionRequestCompatibility.firefox = firefoxCompatibility;
+  }
+  if (compatibilities.includes("firefox-android")) {
+    createVersionRequestCompatibility["firefox-android"] = firefoxAndroidCompatibility;
   }
 
   const client = new AMOClient({
@@ -55,12 +82,7 @@ async function run(): Promise<void> {
   if (typeof version === "undefined") {
     version = await client.createVersion(addonId, {
       approval_notes: approvalNote,
-      compatibility: {
-        firefox: {
-          max: compatibilityFirefoxMax,
-          min: compatibilityFirefoxMin,
-        },
-      },
+      compatibility: createVersionRequestCompatibility,
       license: license,
       release_notes: {
         "en-US": releaseNote,

@@ -1,8 +1,8 @@
 import jwt from "jsonwebtoken";
 import { v4 as uuidv4 } from "uuid";
 
-type VersionRange = { min?: string; max?: string };
-type Compatibility = Record<string, VersionRange> | Array<string>;
+export type VersionRange = { min?: string; max?: string };
+export type Compatibility = Record<string, VersionRange> | Array<string>;
 type License = "all-rights-reserved" | "MPL-2.0" | "GPL-2.0-or-later" | "GPL-3.0-or-later" | "LGPL-2.1-or-later" | "LGPL-3.0-or-later" | "MIT" | "BSD-2-Clause";
 export const LICENSE_NAMES = [
   "all-rights-reserved",
