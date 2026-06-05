@@ -37478,18 +37478,40 @@ async function run() {
     const addonPath = getInput("addon-path");
     const sourcePath = getInput("source-path") || undefined;
     const approvalNote = getInput("approval-note") || undefined;
+    const compatibility = getInput("compatibility");
     const compatibilityFirefoxMin = getInput("compatibility-firefox-min") || undefined;
     const compatibilityFirefoxMax = getInput("compatibility-firefox-max") || undefined;
+    const compatibilityFirefoxAndroidMin = getInput("compatibility-firefox-android-min") || undefined;
+    const compatibilityFirefoxAndroidMax = getInput("compatibility-firefox-android-max") || undefined;
     const license = getInput("license") || undefined;
     const releaseNote = getInput("release-note");
     const channel = getInput("channel") || undefined;
     const authIssuer = getInput("auth-api-issuer");
     const authSecret = getInput("auth-api-secret");
-    if (channel !== "listed" && channel !== "unlisted") {
-        throw new Error(`Invalid channel "${channel}".  Must be "listed" or "unlisted"`);
+    const compatibilities = compatibility.split(",").map((c) => c.trim());
+    if (compatibilities.some((c) => c !== "firefox" && c !== "firefox-android")) {
+        throw new Error(`Invalid compatibility "${compatibility}". Must be "firefox" or "firefox-android"`);
     }
     if (typeof license !== "undefined" && !isLicense(license)) {
-        throw new Error(`Invalid license "${license}".  Must be one of: ${Object.keys(LICENSE_NAMES).join(", ")}`);
+        throw new Error(`Invalid license "${license}". Must be one of: ${Object.keys(LICENSE_NAMES).join(", ")}`);
+    }
+    if (channel !== "listed" && channel !== "unlisted") {
+        throw new Error(`Invalid channel "${channel}". Must be "listed" or "unlisted"`);
+    }
+    const firefoxCompatibility = {
+        min: compatibilityFirefoxMin,
+        max: compatibilityFirefoxMax,
+    };
+    const firefoxAndroidCompatibility = {
+        min: compatibilityFirefoxAndroidMin,
+        max: compatibilityFirefoxAndroidMax,
+    };
+    const createVersionRequestCompatibility = {};
+    if (compatibilities.includes("firefox")) {
+        createVersionRequestCompatibility.firefox = firefoxCompatibility;
+    }
+    if (compatibilities.includes("firefox-android")) {
+        createVersionRequestCompatibility["firefox-android"] = firefoxAndroidCompatibility;
     }
     const client = new AMOClient({
         auth: {
@@ -37514,12 +37536,7 @@ async function run() {
     if (typeof version === "undefined") {
         version = await client.createVersion(addonId, {
             approval_notes: approvalNote,
-            compatibility: {
-                firefox: {
-                    max: compatibilityFirefoxMax,
-                    min: compatibilityFirefoxMin,
-                },
-            },
+            compatibility: createVersionRequestCompatibility,
             license: license,
             release_notes: {
                 "en-US": releaseNote,
