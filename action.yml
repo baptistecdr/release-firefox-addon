@@ -14,7 +14,7 @@ inputs:
   approval-note:
     description: 'Optional note to help reviewers such as how to build the add-on or how to test with test accounts'
   compatibility:
-    description: "Compatibility of the version, comma separated. This field supports only 'firefox' and 'firefox-android'."
+    description: "Compatibility of the version, comma separated. This field supports only 'firefox' and 'android'."
     default: 'firefox'
   compatibility-firefox-min:
     description: 'Minimum version of Firefox that the version is compatible with'
