@@ -60,7 +60,7 @@ All supported options are the following:
 | `addon-path`                        | Path to the add-on file to be published                                                                                                  | Yes      |           |
 | `source-path`                       | Optional path to the source file of the version.  This is nessesary if the version contains minified, concatenated, or transpiled code.  |          |           |
 | `approval-note`                     | Optional note to help reviewers such as how to build the add-on or how to test with test accounts.                                       |          |           |
-| `compatibility`                     | Compatibility of the version, comma separated. This field supports only 'firefox' and 'firefox-android'.                                 |          | `firefox` |
+| `compatibility`                     | Compatibility of the version, comma separated. This field supports only 'firefox' and 'android'.                                         |          | `firefox` |
 | `compatibility-firefox-min`         | Minimum version of Firefox that the version is compatible with.                                                                          |          |           |
 | `compatibility-firefox-max`         | Maximum version of Firefox that the version of the add-on is compatible with.                                                            |          |           |
 | `compatibility-firefox-android-min` | Minimum version of Firefox Android that the version is compatible with.                                                                  |          |           |
