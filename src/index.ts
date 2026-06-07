@@ -24,7 +24,7 @@ async function run(): Promise<void> {
 
   const compatibilities = compatibility.split(",").map((c) => c.trim());
 
-  if (compatibilities.some((c) => c !== "firefox" && !c.includes("android"))) {
+  if (compatibilities.some((c) => c !== "firefox" && c !== "android")) {
     throw new Error(`Invalid compatibility "${compatibility}". Must be "firefox" or "android"`);
   }
 
@@ -49,7 +49,7 @@ async function run(): Promise<void> {
   if (compatibilities.includes("firefox")) {
     createVersionRequestCompatibility.firefox = firefoxCompatibility;
   }
-  if (compatibilities.includes("android") || compatibilities.includes("firefox-android")) {
+  if (compatibilities.includes("android")) {
     createVersionRequestCompatibility.android = firefoxAndroidCompatibility;
   }
 
