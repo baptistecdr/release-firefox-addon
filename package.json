@@ -20,7 +20,7 @@
     "uuid": "14.0.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.5.1",
+    "@biomejs/biome": "2.5.2",
     "@types/jsonwebtoken": "9.0.10",
     "@types/node": "24.13.2"
   }
