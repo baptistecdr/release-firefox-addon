@@ -55,7 +55,7 @@ steps:
 All supported options are the following:
 
 | Name                                | Description                                                                                                                              | Required | Default   |
-|-------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|----------|-----------|
+| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------- |
 | `addon-id`                          | ID of the add-on to be published in numeric or UUID format, or the add-on slug                                                           | Yes      |           |
 | `addon-path`                        | Path to the add-on file to be published                                                                                                  | Yes      |           |
 | `source-path`                       | Optional path to the source file of the version.  This is nessesary if the version contains minified, concatenated, or transpiled code.  |          |           |
@@ -76,11 +76,10 @@ All supported options are the following:
 All supported outputs are the following:
 
 | Name               | Description                                    |
-|--------------------|------------------------------------------------|
+| ------------------ | ---------------------------------------------- |
 | `version`          | 'Version number of the uploaded version.       |
 | `version-id`       | 'ID of the uploaded version in numeric format. |
 | `version-edit-url` | 'URL of the edit page of the uploaded version. |
-
 
 ## How to build
 
