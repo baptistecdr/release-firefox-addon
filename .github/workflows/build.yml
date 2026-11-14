@@ -16,10 +16,10 @@ jobs:
       attestations: write
     steps:
       - name: Clone repository
-        uses: actions/checkout@v7.0.1
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Set up Node.js
-        uses: actions/setup-node@v7.1.0
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version-file: .nvmrc
           cache: npm
@@ -34,7 +34,7 @@ jobs:
         run: npm run package
 
       - name: Commit package
-        uses: EndBug/add-and-commit@v11.1.1
+        uses: EndBug/add-and-commit@cc9c08ba6c8df3b93a8f2db63e89b98368ae2ae8 # v11.1.1
         with:
           fetch: true
           default_author: github_actions
@@ -44,7 +44,7 @@ jobs:
 
       - name: Upload package
         id: upload-package
-        uses: actions/upload-artifact@v7.0.2
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: ${{ env.ARTIFACT_NAME }}
           path: ./dist/
@@ -57,7 +57,7 @@ jobs:
           gh api /repos/${{ github.repository }}/actions/artifacts/${{ steps.upload-package.outputs.artifact-id }}/zip > "$ARTIFACTS_DIR/$ARTIFACT_NAME.zip"
 
       - name: Attest artifact
-        uses: actions/attest-build-provenance@v4.2.2
+        uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4.2.2
         with:
           subject-path: |
             ${{ env.ARTIFACTS_DIR }}/${{ env.ARTIFACT_NAME }}.zip
